@@ -64,7 +64,7 @@ contract multisig {
         _;
     }
 
-    function writeOwner(uint256 _safeId, bool _sts) external {
+    function writeOwner(uint256 _safeId, bool _sts) external onlyCallback {
         safeOwner[_safeId].sts2 = _sts;
     }
 
