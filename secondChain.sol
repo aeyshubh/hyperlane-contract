@@ -75,7 +75,7 @@ contract call {
         return (safeOwner[_safeId].owner,_safeId);
     }
 
-    function writeOwner(uint256 _safeId, address _owner) external {
+    function writeOwner(uint256 _safeId, address _owner) onlyCallback external {
         safeOwner[_safeId].owner = _owner;
     }
 
