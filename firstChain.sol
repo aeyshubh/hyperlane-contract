@@ -149,8 +149,10 @@ contract multisig {
             safeOwner[_safeId].sts1 == true && safeOwner[_safeId].sts2 == true,
             "Both parties have not aggred to widthraw"
         );
-        _a1.transfer(safeOwner[_safeId].balance);
-        //Is something missing here ??
+        _a1.transfer(safeOwner[_safeId].balance);       safeOwner[_safeId].sts1 = false;
+        safeOwner[_safeId].sts2 = false;
+        safeOwner[_safeId].balance = 0;
+        safeOwner[_safeId].timestamps.push(block.timestamp);
         safeOwner[_safeId].timestamps.push(block.timestamp);
     }
 }
